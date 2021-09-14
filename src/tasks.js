@@ -12,35 +12,41 @@ const createTask = ({title, project, date, priority,done, id}) =>({
 
 //add function
 const addTask = (title, project, date, priority, done) => {
-    let id = '';
-    do{
-        id = Math.floor(Math.random()*1000000).toString();
-    }while(tasks.forEach(task => {
-            let idExists = false;
-            if(task.id === id){
-                idExists = true;
-            }
-            return idExists;
-        }));
-    const newTask = createTask({title, project, date, priority, done, id});
-    tasks.push(newTask);
+    if(tasks.length >= 1000000){
+        alert('Task limit reached: 1 million tasks');
+    }
+    else{
+        let id = '';
+        let idExists = true;
+        while(idExists){
+            id = Math.floor(Math.random()*1000000).toString();
+            idExists = false;
+            tasks.forEach(task => {
+                if(task.id === id){
+                    idExists = true;
+                }
+            });
+        }
+        const newTask = createTask({title, project, date, priority, done, id});
+        tasks.push(newTask);
+    }
 }
 
 //remove function
 const removeTask = (id) => {
     let index = tasks.findIndex(e => e.id === id);
     tasks.splice(index,1);
-    console.log('removed');
 }
 
 //mark as done function
 const markDone = (id) => {
-    if(id >= 0){
-        if(tasks[id].done === 'No'){
-            tasks[id].done = 'Yes';
+    let index = tasks.findIndex(e => e.id === id);
+    if(index >= 0){
+        if(tasks[index].done === 'No'){
+            tasks[index].done = 'Yes';
         }
         else{
-            tasks[id].done = 'No';
+            tasks[index].done = 'No';
         }
     }
 }
