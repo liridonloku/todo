@@ -1,0 +1,23 @@
+{
+  "name": "todo",
+  "version": "1.0.0",
+  "description": "A simple To Do app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/liridonloku/todo.git"
+  },
+  "author": "liridonloku",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/liridonloku/todo/issues"
+  },
+  "homepage": "https://github.com/liridonloku/todo#readme",
+  "devDependencies": {
+    "webpack": "^5.52.1",
+    "webpack-cli": "^4.8.0"
+  }
+}
