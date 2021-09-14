@@ -12,16 +12,25 @@ const createTask = ({title, project, date, priority,done, id}) =>({
 
 //add function
 const addTask = (title, project, date, priority, done) => {
-    const id = tasks.length;
+    let id = '';
+    do{
+        id = Math.floor(Math.random()*1000000).toString();
+    }while(tasks.forEach(task => {
+            let idExists = false;
+            if(task.id === id){
+                idExists = true;
+            }
+            return idExists;
+        }));
     const newTask = createTask({title, project, date, priority, done, id});
     tasks.push(newTask);
 }
 
 //remove function
 const removeTask = (id) => {
-    if(id >= 0){
-        tasks.splice(id,1);
-    }
+    let index = tasks.findIndex(e => e.id === id);
+    tasks.splice(index,1);
+    console.log('removed');
 }
 
 //mark as done function
