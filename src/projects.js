@@ -38,3 +38,5 @@ const removeProject = (id) => {
 const getProjects = () => {
     return projects;
 }
+
+export {addProject, removeProject, getProjects};
