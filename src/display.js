@@ -4,7 +4,33 @@ import { compareAsc, compareDesc, format, newDate, parseISO, parse } from "date-
 
 //Default display: All tasks sorted by due date.
 const defaultDisplay = () => {
-    let tasks = getTasks();
+    return sortTasks(getTasks());
+}
+
+//Project display: Tasks from one project by due date.
+const projectDisplay = (project) => {
+    let tasks = sortTasks(getTasks());
+    let sortedTasks = [];
+    tasks.forEach(task => {
+        if(task.project === project){
+            sortedTasks.push(task);
+        }
+    });
+    return sortedTasks;
+}
+
+//Today: All tasks for today
+const todayDisplay = () => {
+
+}
+
+//Week: All tasks for this week
+const weekDisplay = () => {
+
+}
+
+//Sort tasks by date - helper function
+const sortTasks = (tasks) => {
     let sortedTasks = [];
     let dates = [];
     tasks.forEach(task => {
@@ -17,28 +43,6 @@ const defaultDisplay = () => {
         tasks.splice(index,1);
     });
     return sortedTasks;
-}
-
-//Project display: Tasks from one project by due date.
-const projectDisplay = (project) => {
-    let tasks = getTasks();
-    let sortedTasks = [];
-    tasks.forEach(task => {
-        if(task.project === project){
-            sortedTasks.push(task);
-        }
-    });
-    console.log(sortedTasks);
-}
-
-//Today: All tasks for today
-const todayDisplay = () => {
-
-}
-
-//Week: All tasks for this week
-const weekDisplay = () => {
-
 }
 
 export {defaultDisplay, projectDisplay, todayDisplay, weekDisplay};
