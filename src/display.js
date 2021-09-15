@@ -1,6 +1,6 @@
 import { getProjects } from "./projects";
 import { getTasks } from "./tasks";
-import { compareAsc, compareDesc, format, newDate, parseISO, parse } from "date-fns";
+import { compareAsc, format, parseISO, isToday, isThisWeek } from "date-fns";
 
 //Default display: All tasks sorted by due date.
 const defaultDisplay = () => {
@@ -21,12 +21,26 @@ const projectDisplay = (project) => {
 
 //Today: All tasks for today
 const todayDisplay = () => {
-
+    let tasks = sortTasks(getTasks());
+    let sortedTasks = [];
+    tasks.forEach(task => {
+        if(isToday(parseISO(task.date))){
+            sortedTasks.push(task);
+        }
+    });
+    return sortedTasks;
 }
 
 //Week: All tasks for this week
 const weekDisplay = () => {
-
+    let tasks = sortTasks(getTasks());
+    let sortedTasks = [];
+    tasks.forEach(task => {
+        if(isThisWeek(parseISO(task.date))){
+            sortedTasks.push(task);
+        }
+    });
+    return sortedTasks;
 }
 
 //Sort tasks by date - helper function
