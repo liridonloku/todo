@@ -1,5 +1,5 @@
 import {addTask, editTask, removeTask, markDone, getTasks} from './tasks.js';
-import {addProject, removeProject, getProjects } from './projects.js';
+import {addProject, removeProject, getProjects, editProject } from './projects.js';
 import {defaultDisplay, todayDisplay, projectDisplay, weekDisplay} from './display.js';
 
 addTask('Task1', 'Desc', 'default', '2021-01-01', '1');

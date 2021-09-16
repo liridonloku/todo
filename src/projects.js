@@ -28,6 +28,14 @@ const addProject = (name) => {
     }
 }
 
+//edit function
+const editProject = (id, name) => {
+    let index = projects.findIndex(e => e.id === id);
+    if(index >= 0){
+        projects[index].name = name;
+    }
+}
+
 //remove function
 const removeProject = (id) => {
     let index = projects.findIndex(e => e.id === id);
@@ -39,4 +47,4 @@ const getProjects = () => {
     return projects;
 }
 
-export {addProject, removeProject, getProjects};
+export {addProject, editProject, removeProject, getProjects};
