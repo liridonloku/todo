@@ -1,8 +1,9 @@
 const tasks = []; //task container
 
 //task factory function
-const createTask = ({title, project, date, priority,done, id}) =>({
+const createTask = ({title, description, project, date, priority,done, id}) =>({
     title,
+    description,
     project,
     date,
     priority,
@@ -11,7 +12,7 @@ const createTask = ({title, project, date, priority,done, id}) =>({
 });
 
 //add function
-const addTask = (title, project, date, priority, done) => {
+const addTask = (title, description, project, date, priority, done) => {
     if(tasks.length >= 1000000){
         alert('Task limit reached: 1 million tasks');
     }
@@ -27,7 +28,7 @@ const addTask = (title, project, date, priority, done) => {
                 }
             });
         }
-        const newTask = createTask({title, project, date, priority, done, id});
+        const newTask = createTask({title, description, project, date, priority, done, id});
         tasks.push(newTask);
     }
 }
