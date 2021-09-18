@@ -1,6 +1,6 @@
 import { projectDisplay } from "./display";
 
-const tasks = []; //task container
+let tasks = []; //task container, is let for a reason.
 
 //task factory function
 const createTask = ({title, description, project, date, priority,done, id}) =>({
@@ -62,6 +62,11 @@ const removeTask = (id) => {
     tasks.splice(index,1);
 }
 
+//set tasks, only used when deleting a project
+const setTasks = (newTasks) => {
+    tasks = newTasks;
+}
+
 //mark as done function
 const markDone = (id) => {
     let index = tasks.findIndex(e => e.id === id);
@@ -80,4 +85,4 @@ const getTasks = () => {
     return tasks;
 }
 
-export {addTask, editTask, changeProject, removeTask, markDone, getTasks};
+export {addTask, editTask, changeProject, removeTask, markDone, getTasks, setTasks};

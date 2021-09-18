@@ -11,5 +11,3 @@ addTask('Task3', 'Desc', 'default', '2021-02-01', '1');
 addTask('Task4', 'Desc', 'default2', '2021-01-03', '1');
 addTask('Task5', 'Desc', 'default2', '2021-09-15', '1');
 
-editProject(getProjects()[0].id, 'newDef');
-console.log(getTasks());

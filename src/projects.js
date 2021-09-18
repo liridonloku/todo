@@ -1,4 +1,4 @@
-import { getTasks, changeProject } from "./tasks";
+import { getTasks, changeProject, removeTask, setTasks } from "./tasks";
 
 const projects = []; //project container
 
@@ -39,7 +39,7 @@ const editProject = (id, newName) => {
             if(task.project === projects[index].name){
                 changeProject(task.id, newName);
             }
-        })
+        });
         projects[index].name = newName;
     }
 }
@@ -47,7 +47,17 @@ const editProject = (id, newName) => {
 //remove function
 const removeProject = (id) => {
     let index = projects.findIndex(e => e.id === id);
-    projects.splice(index,1);
+    if(index >= 0){
+        let tasks = getTasks();
+        let newTasks = [];
+        tasks.forEach(task => {
+            if(task.project != projects[index].name){
+                newTasks.push(task);
+            }
+        });
+        setTasks(newTasks);
+        projects.splice(index,1);
+    }
 }
 
 //project getter
