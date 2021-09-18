@@ -1,3 +1,5 @@
+import { getTasks, changeProject } from "./tasks";
+
 const projects = []; //project container
 
 //project factory function (name, id)
@@ -29,10 +31,16 @@ const addProject = (name) => {
 }
 
 //edit function
-const editProject = (id, name) => {
+const editProject = (id, newName) => {
     let index = projects.findIndex(e => e.id === id);
     if(index >= 0){
-        projects[index].name = name;
+        let tasks = getTasks();
+        tasks.forEach(task => {
+            if(task.project === projects[index].name){
+                changeProject(task.id, newName);
+            }
+        })
+        projects[index].name = newName;
     }
 }
 

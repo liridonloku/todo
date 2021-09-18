@@ -3,8 +3,13 @@ import {addProject, removeProject, getProjects, editProject } from './projects.j
 import {defaultDisplay, todayDisplay, projectDisplay, weekDisplay} from './display.js';
 import './style.css';
 
+addProject('default');
+
 addTask('Task1', 'Desc', 'default', '2021-01-01', '1');
 addTask('Task2', 'Desc', 'default', '2021-04-02', '1');
 addTask('Task3', 'Desc', 'default', '2021-02-01', '1');
 addTask('Task4', 'Desc', 'default2', '2021-01-03', '1');
 addTask('Task5', 'Desc', 'default2', '2021-09-15', '1');
+
+editProject(getProjects()[0].id, 'newDef');
+console.log(getTasks());

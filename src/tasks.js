@@ -48,6 +48,14 @@ const editTask = (id, title, description, project, date, priority) => {
     }
 }
 
+//change project for a task
+const changeProject = (id, newProject) => {
+    let index = tasks.findIndex(e => e.id === id);
+    if(index >= 0){
+        tasks[index].project = newProject;
+    }
+}
+
 //remove function
 const removeTask = (id) => {
     let index = tasks.findIndex(e => e.id === id);
@@ -72,4 +80,4 @@ const getTasks = () => {
     return tasks;
 }
 
-export {addTask, editTask, removeTask, markDone, getTasks};
+export {addTask, editTask, changeProject, removeTask, markDone, getTasks};
