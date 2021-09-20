@@ -15,7 +15,7 @@ const createTask = ({title, description, project, date, priority, id}) =>({
 //add function
 const addTask = (title, description, project, date, priority) => {
     if(tasks.length >= 1000000){
-        alert('Task limit reached: 1 million tasks');
+        alert('Task limit reached: 1 million tasks'); //The app is probably going to slow down to a crawl way before this point. Need to implement UID.
     }
     else{
         let id = '';
