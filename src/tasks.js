@@ -3,13 +3,12 @@ import { projectDisplay } from "./display";
 let tasks = []; //task container, is let for a reason.
 
 //task factory function
-const createTask = ({title, description, project, date, priority,done, id}) =>({
+const createTask = ({title, description, project, date, priority, id}) =>({
     title,
     description,
     project,
     date,
     priority,
-    done,
     id
 });
 
@@ -21,7 +20,6 @@ const addTask = (title, description, project, date, priority) => {
     else{
         let id = '';
         let idExists = true;
-        let done = 'No';
         while(idExists){
             id = Math.floor(Math.random()*1000000).toString();
             idExists = false;
@@ -31,7 +29,7 @@ const addTask = (title, description, project, date, priority) => {
                 }
             });
         }
-        const newTask = createTask({title, description, project, date, priority, done, id});
+        const newTask = createTask({title, description, project, date, priority, id});
         tasks.push(newTask);
     }
 }
@@ -67,22 +65,10 @@ const setTasks = (newTasks) => {
     tasks = newTasks;
 }
 
-//mark as done function
-const markDone = (id) => {
-    let index = tasks.findIndex(e => e.id === id);
-    if(index >= 0){
-        if(tasks[index].done === 'No'){
-            tasks[index].done = 'Yes';
-        }
-        else{
-            tasks[index].done = 'No';
-        }
-    }
-}
 
 //task getter
 const getTasks = () => {
     return tasks;
 }
 
-export {addTask, editTask, changeProject, removeTask, markDone, getTasks, setTasks};
+export {addTask, editTask, changeProject, removeTask,  getTasks, setTasks};
