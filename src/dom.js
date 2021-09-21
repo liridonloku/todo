@@ -1,8 +1,12 @@
+
+
 //Append projects to the dom
-const loadProjects = () =>{
+const loadProjects = (projects) =>{
     //Clear previous content first
     //Create dom element for each project
     //Attach event listeners
+    const container = document.querySelector('project-container');
+    
 }
 
 //Append tasks to the dom
