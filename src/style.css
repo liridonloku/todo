@@ -7,10 +7,69 @@
 }
 
 body{
+    position: relative;
     margin: 0;
     font-family: 'Open Sans', sans-serif;
     color: var(--black);
     background-color: var(--white);
+}
+
+.task-form{
+    font-size: 14px;
+    padding: 5px;
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+    background-color: var(--white);
+    border-radius: 4px;
+    width: 400px;
+    height: 85%;
+    max-height: 800px;
+    box-shadow: 0 0 5px gray;
+    display: flex;
+    flex-direction: column;
+}
+
+.task-form>div{
+    height: 25px;
+}
+
+.task-form>input{
+    border: none;
+    background: none;
+    box-shadow: 0 0 2px gray;
+    margin-bottom: 5px;
+}
+
+.task-form>textarea{
+    border: none;
+    background: none;
+    box-shadow: 0 0 2px gray;
+    margin-bottom: 5px;
+    resize: none;
+    overflow: auto;
+}
+
+.task-form>select{
+    border: none;
+    background: none;
+    box-shadow: 0 0 2px gray;
+    margin-bottom: 5px;
+}
+
+.task-form>.form-buttons{
+    display: flex;
+    justify-content: space-around;
+    flex-grow: 1;
+    align-items: center;
+}
+
+.task-form>.form-buttons>button{
+    width: 34%;
 }
 
 .content{

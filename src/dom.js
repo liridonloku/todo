@@ -61,7 +61,7 @@ const loadTasks = (tasks) =>{
         taskCard.appendChild(editTask);
         taskCard.appendChild(deleteTask);
         container.appendChild(taskCard);
-    })   
+    });
 }
 
 //Create edit task form
