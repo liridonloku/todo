@@ -158,6 +158,9 @@ body{
 
 .project-name{
     flex-grow: 1;
+    height: 100%;
+    display: flex;
+    align-items: center;
 }
 
 .edit-project{
@@ -166,7 +169,7 @@ body{
     justify-content: center;
     align-items: center;
     width: 30px;
-    height: 30px;
+    height: 100%;
     border-radius: 50%;
 }
 
@@ -176,7 +179,7 @@ body{
     justify-content: center;
     align-items: center;
     width: 30px;
-    height: 30px;
+    height: 100%;
     border-radius: 50%;
 }
 
