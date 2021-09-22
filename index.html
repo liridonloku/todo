@@ -66,26 +66,32 @@
         </div>
     </div>
     <div class="task-form">
-        <div>Task form:</div>
-        <input type="text" placeholder="title">
-        <textarea name="description" id="task-description" cols="30" rows="10" placeholder="description"></textarea>
+        <div>Task:</div>
+        <input type="text" placeholder="title" id="task-form-title">
+        <textarea name="description" id="task-form-description" cols="30" rows="10" placeholder="description"></textarea>
         <label for="priority">Priority</label>
-        <select name="priority" id="priority">
+        <select name="priority" id="task-form-priority">
             <option value="high">High</option>
             <option value="medium">Medium</option>
             <option value="low">Low</option>
         </select>
         <label for="date">Due date:</label>
-        <input type="date" id="date" name="due-date" value="2021-09-21">
+        <input type="date" id="task-form-date" name="due-date" value="2021-09-21">
         <label for="projects-dropdown">Project</label>
-        <input list="projects" id="projects-dropdown">
-        <datalist id="projects">
-            <option value="default">Default</option>
-            <option value="default2" selected>Default2</option>
-        </datalist>
+        <select name="project" id="task-form-project">
+            <option value=""></option>
+        </select>
         <div class="form-buttons">
-            <button type="button" class="save-button">Save</button>
-            <button type="button" class="cancel-button">Cancel</button>
+            <button type="button" class="task-save-button">Save</button>
+            <button type="button" class="task-cancel-button">Cancel</button>
+        </div>
+    </div>
+    <div class="project-form">
+        <div>Project:</div>
+        <input type="text" placeholder="name" id="project-form-name">
+        <div class="form-buttons">
+            <button type="button" class="project-save-button">Save</button>
+            <button type="button" class="project-cancel-button">Cancel</button>
         </div>
     </div>
 </body>
