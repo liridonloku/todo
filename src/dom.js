@@ -1,4 +1,4 @@
-import { toggleTaskForm, toggleProjectForm, cancelTaskForm, cancelProjectForm, displayAllTasks, displayToday, displayThisWeek, saveTask } from "./events";
+import { toggleTaskForm, toggleProjectForm, cancelTaskForm, cancelProjectForm, displayAllTasks, displayToday, displayThisWeek, saveTask, deleteTask as deleteTaskFunction, saveProject } from "./events";
 
 const domElements = {
     menu: document.getElementById('menu'),
@@ -55,6 +55,10 @@ domElements.saveTask.addEventListener('click', () =>{
     saveTask();
 })
 
+domElements.saveProject.addEventListener('click', ()=>{
+    saveProject();
+})
+
 //Append projects to the dom
 const loadProjects = (projects) =>{
     
@@ -86,6 +90,9 @@ const loadProjects = (projects) =>{
         editProject.classList.add('edit-project');
         editProject.setAttribute('id', project.id);
         editProject.textContent = 'E'; //To be replaced with an edit icon
+        editProject.addEventListener('click', (e) =>{
+            toggleProjectForm(e.target.id);
+        })
         const deleteProject = document.createElement('div');
         deleteProject.classList.add('delete-project');
         deleteProject.setAttribute('id', project.id);
@@ -130,6 +137,9 @@ const loadTasks = (tasks) =>{
         deleteTask.classList.add('delete-task');
         deleteTask.setAttribute('id', task.id);
         deleteTask.textContent = 'D'; //To be replaced with a delete icon
+        deleteTask.addEventListener('click', (e) =>{
+            deleteTaskFunction(e.target.id);
+        })
         taskCard.appendChild(priority);
         taskCard.appendChild(taskTitle);
         taskCard.appendChild(editTask);

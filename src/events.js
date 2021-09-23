@@ -1,7 +1,7 @@
 import { defaultDisplay, todayDisplay, weekDisplay } from "./display";
-import { domElements, loadTasks } from "./dom";
-import { getProjects } from "./projects";
-import { addTask, editTask, getTasks } from "./tasks";
+import { domElements, loadProjects, loadTasks } from "./dom";
+import { addProject, editProject, getProjects } from "./projects";
+import { addTask, editTask, getTasks, removeTask } from "./tasks";
 //Menu toggle (mobile)
 //Task form toggle (via new task or edit task)
 const toggleTaskForm = (id) => {
@@ -46,27 +46,16 @@ const saveTask = () =>{
         addTask(domElements.taskTitle.value,domElements.taskDescription.value,domElements.taskProject.value,domElements.taskDate.value,domElements.taskPriority.value);
     }
     toggleTaskForm('');
-    switch(lastView){
-        case 'All tasks':
-            displayAllTasks();
-            break;
-        case 'Today':
-            displayToday();
-            break;
-        case 'This week':
-            displayThisWeek();
-            break;
-        default:
-            break;
-    }
+    loadLastView();
 }
 //Cancel task form button
 const cancelTaskForm = (id) =>{
     toggleTaskForm(id);
 }
 //Delete task button
-const deleteTask = () =>{
-    
+const deleteTask = (id) =>{
+    removeTask(id);
+    loadLastView();
 }
 //Project form toggle (via new project or edit project)
 const toggleProjectForm = (id) =>{
@@ -78,11 +67,13 @@ const toggleProjectForm = (id) =>{
             let index = projects.findIndex(e => e.id === id);
             if(index >= 0){
                 domElements.projectName.value = projects[index].name;
+                domElements.saveProject.setAttribute('id', projects[index].id);
             }
         }
         //New project
         else{
             domElements.projectName.value = '';
+            domElements.saveProject.setAttribute('id', '');
         }
         projectForm.style.display = 'flex';
     }
@@ -91,6 +82,17 @@ const toggleProjectForm = (id) =>{
     }
 }
 //Save/edit project form button
+const saveProject = () =>{
+    const id = domElements.saveProject.getAttribute('id');
+    if(id != ''){
+        editProject(id, domElements.projectName.value);
+    }
+    else{
+        addProject(domElements.projectName.value);
+    }
+    toggleProjectForm('');
+    loadProjects(getProjects());
+}
 //Cancel project form button
 const cancelProjectForm = (id) =>{
     toggleProjectForm(id);
@@ -120,4 +122,20 @@ const displayThisWeek = () =>{
 
 //Task details
 
-export {toggleTaskForm, toggleProjectForm, cancelTaskForm, cancelProjectForm, displayAllTasks, displayToday, displayThisWeek, saveTask}
+const loadLastView = () =>{
+    switch(lastView){
+        case 'All tasks':
+            displayAllTasks();
+            break;
+        case 'Today':
+            displayToday();
+            break;
+        case 'This week':
+            displayThisWeek();
+            break;
+        default:
+            break;
+    }
+}
+
+export {toggleTaskForm, toggleProjectForm, cancelTaskForm, cancelProjectForm, displayAllTasks, displayToday, displayThisWeek, saveTask, deleteTask, saveProject}
