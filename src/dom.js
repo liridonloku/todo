@@ -1,11 +1,24 @@
-import { toggleNewTask } from "./events";
+import { toggleTaskForm } from "./events";
 
-const newTask = document.getElementById('new-task');
-const newProject = document.getElementById('new-project');
-const menu = document.getElementById('menu');
+const domElements = {
+    menu: document.getElementById('menu'),
+    newTask: document.getElementById('new-task'),
+    newProject: document.getElementById('new-project'),    
+    taskTitle: document.getElementById('task-form-title'),
+    taskDescription: document.getElementById('task-form-description'),
+    taskPriority: document.getElementById('task-form-priority'),
+    taskDate: document.getElementById('task-form-date'),
+    taskProject: document.getElementById('task-form-project'),
+    saveTask: document.querySelector('.task-save-button'),
+    cancelTask: document.querySelector('.task-cancel-button'),
+    projectName: document.getElementById('project-form-name'),
+    saveProject: document.querySelector('.project-save-button'),
+    cancelProject: document.querySelector('.cancel-project-button')
+}
 
-newTask.addEventListener('click', () =>{
-    toggleNewTask();
+domElements.newTask.addEventListener('click', () =>{
+    const id = '';
+    toggleTaskForm(id);
 });
 
 //Append projects to the dom
@@ -84,4 +97,4 @@ const editProjectForm = (id) =>{
     //Attach event listeners
 }
 
-export {loadProjects, loadTasks, editTaskForm, editProjectForm}
+export {domElements, loadProjects, loadTasks, editTaskForm, editProjectForm}
