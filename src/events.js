@@ -71,17 +71,21 @@ const cancelProjectForm = (id) =>{
 //Delete project button
 //All tasks
 const displayAllTasks = () =>{
+    domElements.domTasksTitle.textContent = 'All tasks:';
     loadTasks(defaultDisplay());
 }
 //Today
 const displayToday = () =>{
+    domElements.domTasksTitle.textContent = `Today's tasks:`;
     loadTasks(todayDisplay());
 }
 //This week
 const displayThisWeek = () =>{
+    domElements.domTasksTitle.textContent = `This week's tasks:`;
     loadTasks(weekDisplay());
 }
 //Project display
+
 //Task details
 
 export {toggleTaskForm, toggleProjectForm, cancelTaskForm, cancelProjectForm, displayAllTasks, displayToday, displayThisWeek}

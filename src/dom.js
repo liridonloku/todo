@@ -17,7 +17,7 @@ const domElements = {
     allTasks: document.getElementById('all-tasks'),
     today: document.getElementById('today'),
     thisWeek: document.getElementById('this-week'),
-
+    domTasksTitle: document.getElementById('tasks-dom-title'),
 }
 domElements.newTask.addEventListener('click', () =>{
     const id = '';
