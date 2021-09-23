@@ -48,6 +48,20 @@ const saveTask = () =>{
         addTask(domElements.taskTitle.value,domElements.taskDescription.value,domElements.taskProject.value,domElements.taskDate.value,domElements.taskPriority.value);
         console.log(getTasks());
     }
+    toggleTaskForm('');
+    switch(lastView){
+        case 'All tasks':
+            displayAllTasks();
+            break;
+        case 'Today':
+            displayToday();
+            break;
+        case 'This week':
+            displayThisWeek();
+            break;
+        default:
+            break;
+    }
 }
 //Cancel task form button
 const cancelTaskForm = (id) =>{
@@ -82,18 +96,23 @@ const cancelProjectForm = (id) =>{
     toggleProjectForm(id);
 }
 //Delete project button
+
+let lastView = 'All tasks';
 //All tasks
 const displayAllTasks = () =>{
+    lastView = 'All tasks';
     domElements.domTasksTitle.textContent = 'All tasks:';
     loadTasks(defaultDisplay());
 }
 //Today
 const displayToday = () =>{
+    lastView = 'Today';
     domElements.domTasksTitle.textContent = `Today's tasks:`;
     loadTasks(todayDisplay());
 }
 //This week
 const displayThisWeek = () =>{
+    lastView = 'This week';
     domElements.domTasksTitle.textContent = `This week's tasks:`;
     loadTasks(weekDisplay());
 }
