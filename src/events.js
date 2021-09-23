@@ -41,12 +41,9 @@ const saveTask = () =>{
     //If task exist - edit it.
     if(id != ''){
         editTask(id,domElements.taskTitle.value,domElements.taskDescription.value,domElements.taskProject.value,domElements.taskDate.value,domElements.taskPriority.value);
-        console.log('edited');
-        console.log(getTasks());
     }
     else{
         addTask(domElements.taskTitle.value,domElements.taskDescription.value,domElements.taskProject.value,domElements.taskDate.value,domElements.taskPriority.value);
-        console.log(getTasks());
     }
     toggleTaskForm('');
     switch(lastView){
@@ -68,6 +65,9 @@ const cancelTaskForm = (id) =>{
     toggleTaskForm(id);
 }
 //Delete task button
+const deleteTask = () =>{
+    
+}
 //Project form toggle (via new project or edit project)
 const toggleProjectForm = (id) =>{
     const projectForm = document.querySelector('.project-form');

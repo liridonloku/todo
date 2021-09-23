@@ -123,6 +123,9 @@ const loadTasks = (tasks) =>{
         editTask.classList.add('edit-task');
         editTask.setAttribute('id', task.id);
         editTask.textContent = 'E'; //To be replaced with an edit icon
+        editTask.addEventListener('click', (e)=>{
+            toggleTaskForm(e.target.id);
+        })
         const deleteTask = document.createElement('div');
         deleteTask.classList.add('delete-task');
         deleteTask.setAttribute('id', task.id);
