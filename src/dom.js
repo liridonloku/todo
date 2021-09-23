@@ -1,4 +1,4 @@
-import { toggleTaskForm, toggleProjectForm } from "./events";
+import { toggleTaskForm, toggleProjectForm, cancelTaskForm, cancelProjectForm, displayAllTasks } from "./events";
 
 const domElements = {
     menu: document.getElementById('menu'),
@@ -13,9 +13,12 @@ const domElements = {
     cancelTask: document.querySelector('.task-cancel-button'),
     projectName: document.getElementById('project-form-name'),
     saveProject: document.querySelector('.project-save-button'),
-    cancelProject: document.querySelector('.cancel-project-button')
-}
+    cancelProject: document.querySelector('.project-cancel-button'),
+    allTasks: document.getElementById('all-tasks'),
+    today: document.getElementById('today'),
+    thisWeek: document.getElementById('this-week'),
 
+}
 domElements.newTask.addEventListener('click', () =>{
     const id = '';
     toggleTaskForm(id);
@@ -24,6 +27,20 @@ domElements.newTask.addEventListener('click', () =>{
 domElements.newProject.addEventListener('click', () =>{
     const id = '';
     toggleProjectForm(id);
+})
+
+domElements.cancelTask.addEventListener('click', ()=>{
+    const id = '';
+    cancelTaskForm(id);
+})
+
+domElements.cancelProject.addEventListener('click', () =>{
+    const id = '';
+    cancelProjectForm(id);
+})
+
+domElements.allTasks.addEventListener('click', ()=>{
+    displayAllTasks();
 })
 
 //Append projects to the dom

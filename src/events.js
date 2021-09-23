@@ -1,4 +1,5 @@
-import { domElements } from "./dom";
+import { defaultDisplay } from "./display";
+import { domElements, loadTasks } from "./dom";
 import { getProjects } from "./projects";
 import { getTasks } from "./tasks";
 //Menu toggle (mobile)
@@ -16,6 +17,7 @@ const toggleTaskForm = (id) => {
                 domElements.taskPriority.value = tasks[index].priority;
                 domElements.taskDate.value = tasks[index].date;
                 domElements.taskProject.value = tasks[index].project;
+                domElements.saveTask.setAttribute('id', tasks[index].id);
             }
         }
         //New task
@@ -25,6 +27,7 @@ const toggleTaskForm = (id) => {
             domElements.taskPriority.value = 'medium';
             domElements.taskDate.value = new Date().toISOString().slice(0,10);
             domElements.taskProject.value = '';
+            domElements.saveTask.setAttribute('id', '');
         }
         taskForm.style.display = 'flex';
     }
@@ -34,6 +37,9 @@ const toggleTaskForm = (id) => {
 }
 //Save/edit task form button
 //Cancel task form button
+const cancelTaskForm = (id) =>{
+    toggleTaskForm(id);
+}
 //Delete task button
 //Project form toggle (via new project or edit project)
 const toggleProjectForm = (id) =>{
@@ -59,11 +65,18 @@ const toggleProjectForm = (id) =>{
 }
 //Save/edit project form button
 //Cancel project form button
-//Delete form button
+const cancelProjectForm = (id) =>{
+    toggleProjectForm(id);
+}
+//Delete project button
 //All tasks
+const displayAllTasks = () =>{
+    const tasks = defaultDisplay();
+    loadTasks(tasks);
+}
 //Today
 //This week
 //Project display
 //Task details
 
-export {toggleTaskForm, toggleProjectForm}
+export {toggleTaskForm, toggleProjectForm, cancelTaskForm, cancelProjectForm, displayAllTasks}

@@ -54,7 +54,6 @@ const sortTasks = (tasks) => {
     dates.forEach(date => {
         const index = tasks.findIndex(item => item.date === format(date, 'yyyy-MM-dd'));
         sortedTasks.push(tasks[index]);
-        tasks.splice(index,1);
     });
     return sortedTasks;
 }
