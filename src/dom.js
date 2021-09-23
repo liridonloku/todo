@@ -1,6 +1,12 @@
+import { toggleNewTask } from "./events";
+
 const newTask = document.getElementById('new-task');
 const newProject = document.getElementById('new-project');
 const menu = document.getElementById('menu');
+
+newTask.addEventListener('click', () =>{
+    toggleNewTask();
+});
 
 //Append projects to the dom
 const loadProjects = (projects) =>{
