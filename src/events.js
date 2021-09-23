@@ -38,10 +38,11 @@ const toggleTaskForm = (id) => {
 //Save/edit task form button
 const saveTask = () =>{
     const id = domElements.saveTask.getAttribute('id');
-    //If task exist - edit it.
+    //If task exists: edit it.
     if(id != ''){
         editTask(id,domElements.taskTitle.value,domElements.taskDescription.value,domElements.taskProject.value,domElements.taskDate.value,domElements.taskPriority.value);
     }
+    //new task
     else{
         addTask(domElements.taskTitle.value,domElements.taskDescription.value,domElements.taskProject.value,domElements.taskDate.value,domElements.taskPriority.value);
     }
@@ -135,6 +136,20 @@ const projectDisplayFunction = (id) =>{
     loadTasks(projectDisplay(projectName));
 }
 //Task details
+const showTaskDetails = (id) =>{
+    let tasks = getTasks();
+    let index = tasks.findIndex(e => e.id === id);
+    let task = tasks[index];
+    domElements.taskDetailsTitle.textContent = task.title;
+    domElements.taskDetailsDescription.textContent = task.description;
+    domElements.taskDetailsPriority.textContent = `Priority: ${task.priority}`;
+    domElements.taskDetailsDate.textContent = `Due date: ${task.date}`;
+    domElements.taskDetailsProject.textContent = `Project: ${task.project}`;
+    domElements.taskDetailsOkButton.addEventListener('click', () =>{
+        document.querySelector('.task-details').style.display = 'none';
+    });
+    document.querySelector('.task-details').style.display = 'flex';
+}
 
 const loadLastView = () =>{
     switch(lastView){
@@ -152,4 +167,4 @@ const loadLastView = () =>{
     }
 }
 
-export {toggleTaskForm, toggleProjectForm, cancelTaskForm, cancelProjectForm, displayAllTasks, displayToday, displayThisWeek, saveTask, deleteTask, saveProject, deleteProject, projectDisplayFunction}
+export {toggleTaskForm, toggleProjectForm, cancelTaskForm, cancelProjectForm, displayAllTasks, displayToday, displayThisWeek, saveTask, deleteTask, saveProject, deleteProject, projectDisplayFunction, showTaskDetails}

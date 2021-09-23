@@ -1,4 +1,4 @@
-import { toggleTaskForm, toggleProjectForm, cancelTaskForm, cancelProjectForm, displayAllTasks, displayToday, displayThisWeek, saveTask, deleteTask as deleteTaskFunction, saveProject, deleteProject as deleteProjectFunction, projectDisplayFunction } from "./events";
+import { toggleTaskForm, toggleProjectForm, cancelTaskForm, cancelProjectForm, displayAllTasks, displayToday, displayThisWeek, saveTask, deleteTask as deleteTaskFunction, saveProject, deleteProject as deleteProjectFunction, projectDisplayFunction, showTaskDetails } from "./events";
 
 const domElements = {
     menu: document.getElementById('menu'),
@@ -18,6 +18,12 @@ const domElements = {
     today: document.getElementById('today'),
     thisWeek: document.getElementById('this-week'),
     domTasksTitle: document.getElementById('tasks-dom-title'),
+    taskDetailsTitle: document.querySelector('.task-details-title'),
+    taskDetailsDescription: document.querySelector('.task-details-description'),
+    taskDetailsPriority: document.querySelector('.task-details-priority'),
+    taskDetailsDate: document.querySelector('.task-details-date'),
+    taskDetailsProject: document.querySelector('.task-details-project'),
+    taskDetailsOkButton: document.querySelector('.task-details-ok-button'),
 }
 domElements.newTask.addEventListener('click', () =>{
     const id = '';
@@ -132,6 +138,9 @@ const loadTasks = (tasks) =>{
         taskTitle.classList.add('task-title');
         taskTitle.setAttribute('id', task.id);
         taskTitle.textContent = task.title;
+        taskTitle.addEventListener('click', (e)=>{
+            showTaskDetails(e.target.id);
+        })
         const editTask = document.createElement('div');
         editTask.classList.add('edit-task');
         editTask.setAttribute('id', task.id);

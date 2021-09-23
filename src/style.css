@@ -14,6 +14,72 @@ body{
     background-color: var(--white);
 }
 
+.task-details{
+    font-size: 14px;
+    padding: 10px;
+    z-index: 2;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+    background-color: var(--white);
+    border-radius: 4px;
+    width: 400px;
+    height: 85%;
+    max-height: 400px;
+    box-shadow: 0 0 5px gray;
+    display: none;
+    flex-direction: column;
+}
+
+.task-details-header{
+    font-size: 16px;
+    color: var(--blue);
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.task-details-title{
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.task-details-description{
+    flex-grow: 1;
+}
+
+.task-details-priority{
+    margin-bottom: 5px;
+}
+
+.task-details-date{
+    margin-bottom: 5px;
+}
+
+.task-details-project{
+    margin-bottom: 5px;
+}
+
+.task-details-buttons{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 30px;
+}
+
+.task-details-buttons>button{
+    width: 34%;
+    height: 100%;
+    border-radius: 5px;
+    font-size: 16px;
+    background: none;
+    border: none;
+    background-color: var(--blue);
+    color: var(--white);
+}
+
 .task-form{
     font-size: 14px;
     padding: 5px;
@@ -173,7 +239,6 @@ body{
 }
 
 .main{
-    background-color: var(--white);
     flex-grow: 1;
     display: flex;
 }
@@ -401,6 +466,7 @@ body{
     height: 100%;
     display: flex;
     align-items: center;
+    cursor: pointer;
 }
 
 .edit-task{
