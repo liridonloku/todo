@@ -1,4 +1,4 @@
-import { toggleTaskForm, toggleProjectForm, cancelTaskForm, cancelProjectForm, displayAllTasks, displayToday, displayThisWeek, saveTask, deleteTask as deleteTaskFunction, saveProject } from "./events";
+import { toggleTaskForm, toggleProjectForm, cancelTaskForm, cancelProjectForm, displayAllTasks, displayToday, displayThisWeek, saveTask, deleteTask as deleteTaskFunction, saveProject, deleteProject as deleteProjectFunction, projectDisplayFunction } from "./events";
 
 const domElements = {
     menu: document.getElementById('menu'),
@@ -86,6 +86,9 @@ const loadProjects = (projects) =>{
         projectName.classList.add('project-name');
         projectName.setAttribute('id', project.id);
         projectName.textContent = project.name;
+        projectName.addEventListener('click', (e) =>{
+            projectDisplayFunction(e.target.id);
+        })
         const editProject = document.createElement('div');
         editProject.classList.add('edit-project');
         editProject.setAttribute('id', project.id);
@@ -97,6 +100,9 @@ const loadProjects = (projects) =>{
         deleteProject.classList.add('delete-project');
         deleteProject.setAttribute('id', project.id);
         deleteProject.textContent = 'D'; //To be replaced with a delete icon
+        deleteProject.addEventListener('click', (e)=>{
+            deleteProjectFunction(e.target.id);
+        })
         singleProject.appendChild(projectName);
         singleProject.appendChild(editProject);
         singleProject.appendChild(deleteProject);

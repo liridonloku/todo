@@ -1,6 +1,6 @@
-import { defaultDisplay, todayDisplay, weekDisplay } from "./display";
+import { defaultDisplay, todayDisplay, weekDisplay, projectDisplay } from "./display";
 import { domElements, loadProjects, loadTasks } from "./dom";
-import { addProject, editProject, getProjects } from "./projects";
+import { addProject, editProject, getProjects, removeProject } from "./projects";
 import { addTask, editTask, getTasks, removeTask } from "./tasks";
 //Menu toggle (mobile)
 //Task form toggle (via new task or edit task)
@@ -98,6 +98,14 @@ const cancelProjectForm = (id) =>{
     toggleProjectForm(id);
 }
 //Delete project button
+const deleteProject = (id) =>{
+    let confirmation = confirm(`Are you sure you want to delete this project. This will delete its tasks too.`);
+    if(confirmation){
+        removeProject(id);
+        loadProjects(getProjects());
+        loadLastView();
+    }
+}
 
 let lastView = 'All tasks';
 //All tasks
@@ -119,7 +127,13 @@ const displayThisWeek = () =>{
     loadTasks(weekDisplay());
 }
 //Project display
-
+const projectDisplayFunction = (id) =>{
+    let projects = getProjects();
+    let index = projects.findIndex(e => e.id === id);
+    let projectName = projects[index].name;
+    domElements.domTasksTitle.textContent = projectName;
+    loadTasks(projectDisplay(projectName));
+}
 //Task details
 
 const loadLastView = () =>{
@@ -138,4 +152,4 @@ const loadLastView = () =>{
     }
 }
 
-export {toggleTaskForm, toggleProjectForm, cancelTaskForm, cancelProjectForm, displayAllTasks, displayToday, displayThisWeek, saveTask, deleteTask, saveProject}
+export {toggleTaskForm, toggleProjectForm, cancelTaskForm, cancelProjectForm, displayAllTasks, displayToday, displayThisWeek, saveTask, deleteTask, saveProject, deleteProject, projectDisplayFunction}
