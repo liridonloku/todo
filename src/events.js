@@ -131,7 +131,7 @@ const projectDisplayFunction = (id) =>{
     let projects = getProjects();
     let index = projects.findIndex(e => e.id === id);
     let projectName = projects[index].name;
-    domElements.domTasksTitle.textContent = projectName;
+    domElements.domTasksTitle.textContent = `Project: ${projectName}`;
     loadTasks(projectDisplay(projectName));
 }
 //Task details
