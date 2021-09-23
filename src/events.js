@@ -1,4 +1,4 @@
-import { defaultDisplay } from "./display";
+import { defaultDisplay, todayDisplay } from "./display";
 import { domElements, loadTasks } from "./dom";
 import { getProjects } from "./projects";
 import { getTasks } from "./tasks";
@@ -71,12 +71,14 @@ const cancelProjectForm = (id) =>{
 //Delete project button
 //All tasks
 const displayAllTasks = () =>{
-    const tasks = defaultDisplay();
-    loadTasks(tasks);
+    loadTasks(defaultDisplay());
 }
 //Today
+const displayToday = () =>{
+    loadTasks(todayDisplay());
+}
 //This week
 //Project display
 //Task details
 
-export {toggleTaskForm, toggleProjectForm, cancelTaskForm, cancelProjectForm, displayAllTasks}
+export {toggleTaskForm, toggleProjectForm, cancelTaskForm, cancelProjectForm, displayAllTasks, displayToday}
