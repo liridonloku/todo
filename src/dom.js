@@ -1,4 +1,4 @@
-import { toggleTaskForm } from "./events";
+import { toggleTaskForm, toggleProjectForm } from "./events";
 
 const domElements = {
     menu: document.getElementById('menu'),
@@ -21,12 +21,27 @@ domElements.newTask.addEventListener('click', () =>{
     toggleTaskForm(id);
 });
 
+domElements.newProject.addEventListener('click', () =>{
+    const id = '';
+    toggleProjectForm(id);
+})
+
 //Append projects to the dom
 const loadProjects = (projects) =>{
     
     //Clear previous content first
     const container = document.querySelector('.project-container');
     container.replaceChildren();
+
+    //Clear project dropdown menu in the task form
+    const taskProject = document.getElementById('task-form-project');
+    taskProject.replaceChildren();
+
+    //Append an empty(default) project to the task form dropdown menu
+    const defaultProject = document.createElement('option');
+    defaultProject.setAttribute('value', '');
+    defaultProject.textContent = '';
+    taskProject.appendChild(defaultProject);
 
     //Create dom element for each project
     //(Not done yet) Attach event listeners
@@ -50,7 +65,13 @@ const loadProjects = (projects) =>{
         singleProject.appendChild(editProject);
         singleProject.appendChild(deleteProject);
         container.appendChild(singleProject);
-    })
+
+        //Append dropdown menu elements in the task form
+        const taskProjectChild = document.createElement('option');
+        taskProjectChild.setAttribute('value', project.name);
+        taskProjectChild.textContent = project.name;
+        taskProject.appendChild(taskProjectChild);
+    });
 }
 
 //Append tasks to the dom

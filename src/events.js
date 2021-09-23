@@ -1,10 +1,12 @@
 import { domElements } from "./dom";
+import { getProjects } from "./projects";
 import { getTasks } from "./tasks";
 //Menu toggle (mobile)
 //Task form toggle (via new task or edit task)
 const toggleTaskForm = (id) => {
     const taskForm = document.querySelector('.task-form');
     if(taskForm.style.display === 'none' || taskForm.style.display === ''){
+        //Edit task
         if(id != ''){
             let tasks = getTasks();
             let index = tasks.findIndex(e => e.id === id);
@@ -16,6 +18,7 @@ const toggleTaskForm = (id) => {
                 domElements.taskProject.value = tasks[index].project;
             }
         }
+        //New task
         else{
             domElements.taskTitle.value = '';
             domElements.taskDescription.value = '';
@@ -33,6 +36,27 @@ const toggleTaskForm = (id) => {
 //Cancel task form button
 //Delete task button
 //Project form toggle (via new project or edit project)
+const toggleProjectForm = (id) =>{
+    const projectForm = document.querySelector('.project-form');
+    if(projectForm.style.display === 'none' || projectForm.style.display === ''){
+        //Edit project
+        if(id != ''){
+            let projects = getProjects();
+            let index = projects.findIndex(e => e.id === id);
+            if(index >= 0){
+                domElements.projectName.value = projects[index].name;
+            }
+        }
+        //New project
+        else{
+            domElements.projectName.value = '';
+        }
+        projectForm.style.display = 'flex';
+    }
+    else{
+        projectForm.style.display = 'none';
+    }
+}
 //Save/edit project form button
 //Cancel project form button
 //Delete form button
@@ -42,4 +66,4 @@ const toggleTaskForm = (id) => {
 //Project display
 //Task details
 
-export {toggleTaskForm}
+export {toggleTaskForm, toggleProjectForm}
