@@ -44,10 +44,12 @@ body{
 .task-details-title{
     font-size: 16px;
     margin-bottom: 5px;
+    word-break: break-word;
 }
 
 .task-details-description{
     flex-grow: 1;
+    word-break: break-word;
 }
 
 .task-details-priority{
@@ -60,6 +62,7 @@ body{
 
 .task-details-project{
     margin-bottom: 5px;
+    word-break: break-word;
 }
 
 .task-details-buttons{
@@ -356,6 +359,7 @@ body{
     height: 100%;
     display: flex;
     align-items: center;
+    word-break: break-word;
 }
 
 .edit-project{
@@ -467,6 +471,7 @@ body{
     display: flex;
     align-items: center;
     cursor: pointer;
+    word-break: break-word;
 }
 
 .edit-task{

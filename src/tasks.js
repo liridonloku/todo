@@ -1,6 +1,6 @@
 import { projectDisplay } from "./display";
 
-let tasks = []; //task container, is let for a reason.
+let tasks = []; //task container, is let for a reason. Will change in v2
 
 //task factory function
 const createTask = ({title, description, project, date, priority, id}) =>({
