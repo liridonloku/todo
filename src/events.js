@@ -1,4 +1,4 @@
-import { defaultDisplay, todayDisplay } from "./display";
+import { defaultDisplay, todayDisplay, weekDisplay } from "./display";
 import { domElements, loadTasks } from "./dom";
 import { getProjects } from "./projects";
 import { getTasks } from "./tasks";
@@ -78,7 +78,10 @@ const displayToday = () =>{
     loadTasks(todayDisplay());
 }
 //This week
+const displayThisWeek = () =>{
+    loadTasks(weekDisplay());
+}
 //Project display
 //Task details
 
-export {toggleTaskForm, toggleProjectForm, cancelTaskForm, cancelProjectForm, displayAllTasks, displayToday}
+export {toggleTaskForm, toggleProjectForm, cancelTaskForm, cancelProjectForm, displayAllTasks, displayToday, displayThisWeek}
