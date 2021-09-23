@@ -1,7 +1,7 @@
 import { defaultDisplay, todayDisplay, weekDisplay } from "./display";
 import { domElements, loadTasks } from "./dom";
 import { getProjects } from "./projects";
-import { getTasks } from "./tasks";
+import { addTask, editTask, getTasks } from "./tasks";
 //Menu toggle (mobile)
 //Task form toggle (via new task or edit task)
 const toggleTaskForm = (id) => {
@@ -36,6 +36,19 @@ const toggleTaskForm = (id) => {
     }
 }
 //Save/edit task form button
+const saveTask = () =>{
+    const id = domElements.saveTask.getAttribute('id');
+    //If task exist - edit it.
+    if(id != ''){
+        editTask(id,domElements.taskTitle.value,domElements.taskDescription.value,domElements.taskProject.value,domElements.taskDate.value,domElements.taskPriority.value);
+        console.log('edited');
+        console.log(getTasks());
+    }
+    else{
+        addTask(domElements.taskTitle.value,domElements.taskDescription.value,domElements.taskProject.value,domElements.taskDate.value,domElements.taskPriority.value);
+        console.log(getTasks());
+    }
+}
 //Cancel task form button
 const cancelTaskForm = (id) =>{
     toggleTaskForm(id);
@@ -88,4 +101,4 @@ const displayThisWeek = () =>{
 
 //Task details
 
-export {toggleTaskForm, toggleProjectForm, cancelTaskForm, cancelProjectForm, displayAllTasks, displayToday, displayThisWeek}
+export {toggleTaskForm, toggleProjectForm, cancelTaskForm, cancelProjectForm, displayAllTasks, displayToday, displayThisWeek, saveTask}

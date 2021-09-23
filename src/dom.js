@@ -1,4 +1,4 @@
-import { toggleTaskForm, toggleProjectForm, cancelTaskForm, cancelProjectForm, displayAllTasks, displayToday, displayThisWeek } from "./events";
+import { toggleTaskForm, toggleProjectForm, cancelTaskForm, cancelProjectForm, displayAllTasks, displayToday, displayThisWeek, saveTask } from "./events";
 
 const domElements = {
     menu: document.getElementById('menu'),
@@ -49,6 +49,10 @@ domElements.today.addEventListener('click', () =>{
 
 domElements.thisWeek.addEventListener('click', () =>{
     displayThisWeek();
+})
+
+domElements.saveTask.addEventListener('click', () =>{
+    saveTask();
 })
 
 //Append projects to the dom

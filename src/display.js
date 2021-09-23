@@ -45,16 +45,19 @@ const weekDisplay = () => {
 
 //Sort tasks by date - helper function
 const sortTasks = (tasks) => {
+    let mappedArray = tasks.map(element => element);
     let sortedTasks = [];
     let dates = [];
-    tasks.forEach(task => {
+    mappedArray.forEach(task => {
         dates.push(parseISO(task.date));
     });
     dates = dates.sort(compareAsc);
     dates.forEach(date => {
-        const index = tasks.findIndex(item => item.date === format(date, 'yyyy-MM-dd'));
-        sortedTasks.push(tasks[index]);
+        const index = mappedArray.findIndex(item => item.date === format(date, 'yyyy-MM-dd'));
+        sortedTasks.push(mappedArray[index]);
+        mappedArray.splice(index,1);
     });
+    console.log(sortedTasks);
     return sortedTasks;
 }
 
