@@ -1,4 +1,4 @@
-import { getTasks, changeProject, removeTask, setTasks } from "./tasks";
+import { getTasks, changeProject, setTasks } from "./tasks";
 
 let projects = [
     {

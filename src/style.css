@@ -109,8 +109,7 @@ body{
     background-color: var(--white);
     border-radius: 4px;
     width: 400px;
-    height: 85%;
-    max-height: 400px;
+    height: 400px;
     box-shadow: 0 0 5px gray;
     display: none;
     flex-direction: column;
