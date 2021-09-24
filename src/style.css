@@ -120,6 +120,7 @@ body{
 }
 
 .task-form>input{
+    height: 19px;
     border: none;
     background: none;
     box-shadow: 0 0 2px gray;
@@ -127,6 +128,7 @@ body{
 }
 
 .task-form>textarea{
+    flex-grow: 1;
     border: none;
     background: none;
     box-shadow: 0 0 2px gray;
