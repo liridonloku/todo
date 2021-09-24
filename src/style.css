@@ -242,6 +242,7 @@ body{
 }
 
 #menu{
+    display: none;
     cursor: pointer;
     width: 30px;
     text-align: center;
@@ -382,7 +383,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 30px;
+    width: 24px;
     height: 100%;
     border-radius: 50%;
 }
@@ -392,7 +393,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 30px;
+    width: 24px;
     height: 100%;
     border-radius: 50%;
 }
@@ -494,8 +495,9 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 25px;
+    width: 24px;
     height: 100%;
+    opacity: 60%;
 }
 
 .delete-task{
@@ -503,8 +505,9 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 25px;
+    width: 24px;
     height: 100%;
+    opacity: 60%;
 }
 
 .footer{
@@ -519,4 +522,32 @@ body{
 .footer>p>a{
     text-decoration: none;
     color: var(--black);
+}
+
+
+@media screen and (max-width: 420px) {
+    .main{
+        display: block;
+        position: relative;
+    }
+
+    #menu{
+        display: block;
+        text-align: end;
+        padding-right: 5px;
+    }
+
+    .side-panel{
+        display: none;
+        position: absolute;
+        left: 0;
+        z-index: 1;
+        background-color: var(--white);
+        height: 100%;
+    }
+
+    .tasks{
+        height: 100%;
+    }
+    
 }

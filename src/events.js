@@ -2,7 +2,20 @@ import { defaultDisplay, todayDisplay, weekDisplay, projectDisplay } from "./dis
 import { domElements, loadProjects, loadTasks } from "./dom";
 import { addProject, editProject, getProjects, removeProject } from "./projects";
 import { addTask, editTask, getTasks, removeTask } from "./tasks";
+
+
 //Menu toggle (mobile)
+const toggleMenu = () =>{
+    if(domElements.sidePanel.style.display === 'none' || domElements.sidePanel.style.display === ''){
+        domElements.menu.style.width = '250px';
+        domElements.sidePanel.style.display = 'block';
+    }
+    else{
+        domElements.menu.style.width = '30px';
+        domElements.sidePanel.style.display = 'none';
+    }
+}
+
 //Task form toggle (via new task or edit task)
 const toggleTaskForm = (id) => {
     const taskForm = document.querySelector('.task-form');
@@ -115,24 +128,36 @@ const deleteProject = (id) =>{
 let lastView = 'All tasks';
 //All tasks
 const displayAllTasks = () =>{
+    if(window.innerWidth <= 420){
+        toggleMenu();
+    }
     lastView = 'All tasks';
     domElements.domTasksTitle.textContent = 'All tasks:';
     loadTasks(defaultDisplay());
 }
 //Today
 const displayToday = () =>{
+    if(window.innerWidth <= 420){
+        toggleMenu();
+    }
     lastView = 'Today';
     domElements.domTasksTitle.textContent = `Today's tasks:`;
     loadTasks(todayDisplay());
 }
 //This week
 const displayThisWeek = () =>{
+    if(window.innerWidth <= 420){
+        toggleMenu();
+    }
     lastView = 'This week';
     domElements.domTasksTitle.textContent = `This week's tasks:`;
     loadTasks(weekDisplay());
 }
 //Project display
 const projectDisplayFunction = (id) =>{
+    if(window.innerWidth <= 420){
+        toggleMenu();
+    }
     let projects = getProjects();
     let index = projects.findIndex(e => e.id === id);
     let projectName = projects[index].name;
@@ -171,4 +196,4 @@ const loadLastView = () =>{
     }
 }
 
-export {toggleTaskForm, toggleProjectForm, cancelTaskForm, cancelProjectForm, displayAllTasks, displayToday, displayThisWeek, saveTask, deleteTask, saveProject, deleteProject, projectDisplayFunction, showTaskDetails}
+export {toggleMenu, toggleTaskForm, toggleProjectForm, cancelTaskForm, cancelProjectForm, displayAllTasks, displayToday, displayThisWeek, saveTask, deleteTask, saveProject, deleteProject, projectDisplayFunction, showTaskDetails}

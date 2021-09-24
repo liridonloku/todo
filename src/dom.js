@@ -1,4 +1,4 @@
-import { toggleTaskForm, toggleProjectForm, cancelTaskForm, cancelProjectForm, displayAllTasks, displayToday, displayThisWeek, saveTask, deleteTask as deleteTaskFunction, saveProject, deleteProject as deleteProjectFunction, projectDisplayFunction, showTaskDetails } from "./events";
+import { toggleTaskForm, toggleProjectForm, cancelTaskForm, cancelProjectForm, displayAllTasks, displayToday, displayThisWeek, saveTask, deleteTask as deleteTaskFunction, saveProject, deleteProject as deleteProjectFunction, projectDisplayFunction, showTaskDetails, toggleMenu } from "./events";
 import { getProjects } from "./projects";
 
 const domElements = {
@@ -25,8 +25,14 @@ const domElements = {
     taskDetailsDate: document.querySelector('.task-details-date'),
     taskDetailsProject: document.querySelector('.task-details-project'),
     taskDetailsOkButton: document.querySelector('.task-details-ok-button'),
-    formOverlay: document.querySelector('.task-form-overlay')
+    formOverlay: document.querySelector('.task-form-overlay'),
+    sidePanel: document.querySelector('.side-panel'),
 }
+
+domElements.menu.addEventListener('click', () =>{
+    toggleMenu();
+})
+
 domElements.newTask.addEventListener('click', () =>{
     const id = '';
     toggleTaskForm(id);
@@ -107,7 +113,7 @@ const loadProjects = (projects) =>{
     taskProject.appendChild(defaultProject);
 
     //Create dom element for each project
-    //(Not done yet) Attach event listeners
+    //Attach event listeners
     //Append created elements to the container    
     projects.forEach(project => {
         const singleProject = document.createElement('div');
@@ -122,14 +128,22 @@ const loadProjects = (projects) =>{
         const editProject = document.createElement('div');
         editProject.classList.add('edit-project');
         editProject.setAttribute('id', project.id);
-        editProject.textContent = 'E'; //To be replaced with an edit icon
+        const editIcon = document.createElement('span');
+        editIcon.classList.add('material-icons', 'md-18');
+        editIcon.setAttribute('id', project.id);
+        editIcon.textContent = 'edit_note';
+        editProject.appendChild(editIcon);
         editProject.addEventListener('click', (e) =>{
             toggleProjectForm(e.target.id);
         })
         const deleteProject = document.createElement('div');
         deleteProject.classList.add('delete-project');
         deleteProject.setAttribute('id', project.id);
-        deleteProject.textContent = 'D'; //To be replaced with a delete icon
+        const deleteIcon = document.createElement('span');
+        deleteIcon.classList.add('material-icons', 'md-18');
+        deleteIcon.setAttribute('id', project.id);
+        deleteIcon.textContent = 'delete';
+        deleteProject.appendChild(deleteIcon);
         deleteProject.addEventListener('click', (e)=>{
             deleteProjectFunction(e.target.id);
         })
@@ -168,14 +182,22 @@ const loadTasks = (tasks) =>{
         const editTask = document.createElement('div');
         editTask.classList.add('edit-task');
         editTask.setAttribute('id', task.id);
-        editTask.textContent = 'E'; //To be replaced with an edit icon
+        const editIcon = document.createElement('span');
+        editIcon.classList.add('material-icons', 'md-18');
+        editIcon.setAttribute('id', task.id);
+        editIcon.textContent = 'edit_note';
+        editTask.appendChild(editIcon);
         editTask.addEventListener('click', (e)=>{
             toggleTaskForm(e.target.id);
         })
         const deleteTask = document.createElement('div');
         deleteTask.classList.add('delete-task');
         deleteTask.setAttribute('id', task.id);
-        deleteTask.textContent = 'D'; //To be replaced with a delete icon
+        const deleteIcon = document.createElement('span');
+        deleteIcon.classList.add('material-icons', 'md-18');
+        deleteIcon.setAttribute('id', task.id);
+        deleteIcon.textContent = 'delete';
+        deleteTask.appendChild(deleteIcon);
         deleteTask.addEventListener('click', (e) =>{
             deleteTaskFunction(e.target.id);
         })
