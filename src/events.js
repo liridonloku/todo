@@ -7,11 +7,9 @@ import { addTask, editTask, getTasks, removeTask } from "./tasks";
 //Menu toggle (mobile)
 const toggleMenu = () =>{
     if(domElements.sidePanel.style.display === 'none' || domElements.sidePanel.style.display === ''){
-        domElements.menu.style.width = '250px';
         domElements.sidePanel.style.display = 'block';
     }
     else{
-        domElements.menu.style.width = '30px';
         domElements.sidePanel.style.display = 'none';
     }
 }
