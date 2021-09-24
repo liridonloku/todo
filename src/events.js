@@ -18,6 +18,9 @@ const toggleMenu = () =>{
 
 //Task form toggle (via new task or edit task)
 const toggleTaskForm = (id) => {
+    if(window.innerWidth <= 420 && domElements.sidePanel.style.display === 'block'){
+        toggleMenu();
+    }
     const taskForm = document.querySelector('.task-form');
     if(taskForm.style.display === 'none' || taskForm.style.display === ''){
         //Edit task
@@ -75,6 +78,9 @@ const deleteTask = (id) =>{
 }
 //Project form toggle (via new project or edit project)
 const toggleProjectForm = (id) =>{
+    if(window.innerWidth <= 420 && domElements.sidePanel.style.display === 'block'){
+        toggleMenu();
+    }
     const projectForm = document.querySelector('.project-form');
     if(projectForm.style.display === 'none' || projectForm.style.display === ''){
         //Edit project
@@ -128,7 +134,7 @@ const deleteProject = (id) =>{
 let lastView = 'All tasks';
 //All tasks
 const displayAllTasks = () =>{
-    if(window.innerWidth <= 420){
+    if(window.innerWidth <= 420 && domElements.sidePanel.style.display === 'block'){
         toggleMenu();
     }
     lastView = 'All tasks';
@@ -137,7 +143,7 @@ const displayAllTasks = () =>{
 }
 //Today
 const displayToday = () =>{
-    if(window.innerWidth <= 420){
+    if(window.innerWidth <= 420 && domElements.sidePanel.style.display === 'block'){
         toggleMenu();
     }
     lastView = 'Today';
@@ -146,7 +152,7 @@ const displayToday = () =>{
 }
 //This week
 const displayThisWeek = () =>{
-    if(window.innerWidth <= 420){
+    if(window.innerWidth <= 420 && domElements.sidePanel.style.display === 'block'){
         toggleMenu();
     }
     lastView = 'This week';
@@ -155,7 +161,7 @@ const displayThisWeek = () =>{
 }
 //Project display
 const projectDisplayFunction = (id) =>{
-    if(window.innerWidth <= 420){
+    if(window.innerWidth <= 420 && domElements.sidePanel.style.display === 'block'){
         toggleMenu();
     }
     let projects = getProjects();
@@ -166,6 +172,9 @@ const projectDisplayFunction = (id) =>{
 }
 //Task details
 const showTaskDetails = (id) =>{
+    if(window.innerWidth <= 420 && domElements.sidePanel.style.display === 'block'){
+        toggleMenu();
+    }
     let tasks = getTasks();
     let index = tasks.findIndex(e => e.id === id);
     let task = tasks[index];
