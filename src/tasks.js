@@ -1,6 +1,37 @@
-import { projectDisplay } from "./display";
-
-let tasks = [];
+let tasks = [
+    {
+        title: 'This is a task',
+        description: 'This is a description',
+        project: 'Getting started',
+        date: '2021-09-24',
+        priority: 'high',
+        id: '0000001',
+    },
+    {
+        title: 'High priority is marked with a red circle',
+        description: 'This is a description',
+        project: 'Getting started',
+        date: '2021-09-24',
+        priority: 'high',
+        id: '0000002',
+    },
+    {
+        title: 'Medium priority is marked with a yellow circle',
+        description: 'This is a description',
+        project: 'Getting started',
+        date: '2021-09-24',
+        priority: 'medium',
+        id: '0000003',
+    },
+    {
+        title: 'Low priority is marked with a green circle',
+        description: 'This is a description',
+        project: 'Getting started',
+        date: '2021-09-24',
+        priority: 'low',
+        id: '0000004',
+    }
+];
 
 if(localStorage.tasks){
     tasks = JSON.parse(localStorage.tasks);

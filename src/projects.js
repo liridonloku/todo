@@ -1,6 +1,11 @@
 import { getTasks, changeProject, removeTask, setTasks } from "./tasks";
 
-let projects = []; //project container
+let projects = [
+    {
+        name: 'Getting started',
+        id: '0000001'
+    }
+]; //project container
 
 if(localStorage.projects){
     projects = JSON.parse(localStorage.projects);
