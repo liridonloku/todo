@@ -1,4 +1,3 @@
-import { getProjects } from "./projects";
 import { getTasks } from "./tasks";
 import { compareAsc, format, parseISO, isToday, isThisWeek } from "date-fns";
 
@@ -57,7 +56,6 @@ const sortTasks = (tasks) => {
         sortedTasks.push(mappedArray[index]);
         mappedArray.splice(index,1);
     });
-    console.log(sortedTasks);
     return sortedTasks;
 }
 
