@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="main.js" defer></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
     <title>U-Do: A to do app</title>
 </head>
 <body>
@@ -30,8 +32,8 @@
                     <div class="project-container">
                         <div class="single-project">
                             <div class="project-name">Placeholder</div>
-                            <div class="edit-project">E</div>
-                            <div class="delete-project">D</div>
+                            <div class="edit-project"><span class="material-icons md-18">edit_note</span></div>
+                            <div class="delete-project"><span class="material-icons md-18">delete</span></div>
                         </div>
                     </div>
                 </div>
@@ -90,7 +92,7 @@
     </div>
     <div class="project-form">
         <div>Project:</div>
-        <input type="text" placeholder="name" id="project-form-name">
+        <input type="text" placeholder="name" id="project-form-name" maxlength="40">
         <div class="form-buttons">
             <button type="button" class="project-save-button">Save</button>
             <button type="button" class="project-cancel-button">Cancel</button>
