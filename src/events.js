@@ -30,9 +30,11 @@ const toggleTaskForm = (id) => {
             domElements.saveTask.setAttribute('id', '');
         }
         taskForm.style.display = 'flex';
+        domElements.formOverlay.style.display = 'block';
     }
     else{
         taskForm.style.display = 'none';
+        domElements.formOverlay.style.display = 'none';
     }
 }
 //Save/edit task form button
@@ -77,9 +79,11 @@ const toggleProjectForm = (id) =>{
             domElements.saveProject.setAttribute('id', '');
         }
         projectForm.style.display = 'flex';
+        domElements.formOverlay.style.display = 'block'
     }
     else{
         projectForm.style.display = 'none';
+        domElements.formOverlay.style.display = 'none';
     }
 }
 //Save/edit project form button

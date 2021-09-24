@@ -73,6 +73,7 @@ body{
 }
 
 .task-details-buttons>button{
+    cursor: pointer;
     width: 34%;
     height: 100%;
     border-radius: 5px;
@@ -81,6 +82,18 @@ body{
     border: none;
     background-color: var(--blue);
     color: var(--white);
+}
+
+.task-form-overlay{
+    display: none;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
 }
 
 .task-form{
@@ -138,6 +151,7 @@ body{
 }
 
 .task-form>.form-buttons>button{
+    cursor: pointer;
     width: 34%;
     height: 66%;
     border-radius: 5px;
@@ -195,6 +209,7 @@ body{
 }
 
 .project-form>.form-buttons>button{
+    cursor: pointer;
     width: 34%;
     height: 66%;
     border-radius: 5px;

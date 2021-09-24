@@ -65,25 +65,27 @@
             <p>Made by <a href="https://www.github.com/liridonloku">liridonloku</a>, September 2021</p>
         </div>
     </div>
-    <div class="task-form">
-        <div>Task:</div>
-        <input type="text" placeholder="title" id="task-form-title" maxlength="64">
-        <textarea name="description" id="task-form-description" cols="30" rows="10" placeholder="description" maxlength="500"></textarea>
-        <label for="priority">Priority</label>
-        <select name="priority" id="task-form-priority">
-            <option value="high">High</option>
-            <option value="medium">Medium</option>
-            <option value="low">Low</option>
-        </select>
-        <label for="date">Due date:</label>
-        <input type="date" id="task-form-date" name="due-date" value="2021-09-21">
-        <label for="projects-dropdown">Project</label>
-        <select name="project" id="task-form-project">
-            <option value=""></option>
-        </select>
-        <div class="form-buttons">
-            <button type="button" class="task-save-button">Save</button>
-            <button type="button" class="task-cancel-button">Cancel</button>
+    <div class="task-form-overlay">
+        <div class="task-form">
+            <div>Task:</div>
+            <input type="text" placeholder="title" id="task-form-title" maxlength="64">
+            <textarea name="description" id="task-form-description" cols="30" rows="10" placeholder="description" maxlength="500"></textarea>
+            <label for="priority">Priority</label>
+            <select name="priority" id="task-form-priority">
+                <option value="high">High</option>
+                <option value="medium">Medium</option>
+                <option value="low">Low</option>
+            </select>
+            <label for="date">Due date:</label>
+            <input type="date" id="task-form-date" name="due-date" value="2021-09-21">
+            <label for="projects-dropdown">Project</label>
+            <select name="project" id="task-form-project">
+                <option value=""></option>
+            </select>
+            <div class="form-buttons">
+                <button type="button" class="task-save-button">Save</button>
+                <button type="button" class="task-cancel-button">Cancel</button>
+            </div>
         </div>
     </div>
     <div class="project-form">

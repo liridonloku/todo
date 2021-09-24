@@ -25,6 +25,7 @@ const domElements = {
     taskDetailsDate: document.querySelector('.task-details-date'),
     taskDetailsProject: document.querySelector('.task-details-project'),
     taskDetailsOkButton: document.querySelector('.task-details-ok-button'),
+    formOverlay: document.querySelector('.task-form-overlay')
 }
 domElements.newTask.addEventListener('click', () =>{
     const id = '';
