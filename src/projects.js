@@ -1,6 +1,10 @@
 import { getTasks, changeProject, removeTask, setTasks } from "./tasks";
 
-const projects = []; //project container
+let projects = []; //project container
+
+if(localStorage.projects){
+    projects = JSON.parse(localStorage.projects);
+}
 
 //project factory function (name, id)
 const createProject =({name, id}) => ({
@@ -27,6 +31,7 @@ const addProject = (name) => {
         }
         const newProject = createProject({name, id});
         projects.push(newProject);
+        localStorage.projects = JSON.stringify(projects);
     }
 }
 
@@ -41,6 +46,7 @@ const editProject = (id, newName) => {
             }
         });
         projects[index].name = newName;
+        localStorage.projects = JSON.stringify(projects);
     }
 }
 
@@ -57,6 +63,7 @@ const removeProject = (id) => {
         });
         setTasks(newTasks);
         projects.splice(index,1);
+        localStorage.projects = JSON.stringify(projects);
     }
 }
 

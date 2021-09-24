@@ -1,7 +1,10 @@
 import { projectDisplay } from "./display";
 
-let tasks = []; //task container, is let for a reason. Will change in v2
+let tasks = [];
 
+if(localStorage.tasks){
+    tasks = JSON.parse(localStorage.tasks);
+}
 //task factory function
 const createTask = ({title, description, project, date, priority, id}) =>({
     title,
@@ -31,6 +34,7 @@ const addTask = (title, description, project, date, priority) => {
         }
         const newTask = createTask({title, description, project, date, priority, id});
         tasks.push(newTask);
+        localStorage.tasks = JSON.stringify(tasks);
     }
 }
 
@@ -43,6 +47,7 @@ const editTask = (id, title, description, project, date, priority) => {
         tasks[index].project = project;
         tasks[index].date = date;
         tasks[index].priority = priority;
+        localStorage.tasks = JSON.stringify(tasks);
     }
 }
 
@@ -51,6 +56,7 @@ const changeProject = (id, newProject) => {
     let index = tasks.findIndex(e => e.id === id);
     if(index >= 0){
         tasks[index].project = newProject;
+        localStorage.tasks = JSON.stringify(tasks);
     }
 }
 
@@ -58,11 +64,13 @@ const changeProject = (id, newProject) => {
 const removeTask = (id) => {
     let index = tasks.findIndex(e => e.id === id);
     tasks.splice(index,1);
+    localStorage.tasks = JSON.stringify(tasks);
 }
 
 //set tasks, only used when deleting a project
 const setTasks = (newTasks) => {
     tasks = newTasks;
+    localStorage.tasks = JSON.stringify(tasks);
 }
 
 
