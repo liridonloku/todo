@@ -1,4 +1,5 @@
 import { toggleTaskForm, toggleProjectForm, cancelTaskForm, cancelProjectForm, displayAllTasks, displayToday, displayThisWeek, saveTask, deleteTask as deleteTaskFunction, saveProject, deleteProject as deleteProjectFunction, projectDisplayFunction, showTaskDetails } from "./events";
+import { getProjects } from "./projects";
 
 const domElements = {
     menu: document.getElementById('menu'),
@@ -58,10 +59,32 @@ domElements.thisWeek.addEventListener('click', () =>{
 })
 
 domElements.saveTask.addEventListener('click', () =>{
+    if(domElements.taskTitle.value.length < 1){
+        alert('Please give a title to your task.');
+        return;
+    }
+    if(!domElements.taskDate.value){
+        alert('Please pick a due date.')
+        return;
+    }
     saveTask();
 })
 
 domElements.saveProject.addEventListener('click', ()=>{
+    if(domElements.projectName.value.length < 1){
+        alert('Please give a name to your project.')
+        return;
+    }
+    let projectExists = false;
+    getProjects().forEach(project =>{
+        if(project.name === domElements.projectName.value){
+            alert('A project with this name already exists. Please use another name.');
+            projectExists = true;
+        }
+    })
+    if(projectExists){
+        return;
+    }
     saveProject();
 })
 
