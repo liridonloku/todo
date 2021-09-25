@@ -1,8 +1,6 @@
-# U-Do
+# About the project
 
-## About the project
-
-U-Do is a Todo list app with a clean UI that helps users keep their notes organized, so that they can focus on actually completing the tasks.
+**U-Do** is a Todo list app with a clean UI that helps users keep their notes organized, so that they can focus on actually completing the tasks.
 
 It displays tasks ordered by the date they're due to be completed, while giving users the option to view all the tasks, or just those of the day (or week), so that there's less clutter and it's always clear what needs to be done next.
 
@@ -19,7 +17,14 @@ This app is built without using any frameworks, only:
 - JavaScript
 
 
-## [--- Live preview ---](https://liridonloku.github.io/todo/)
+## [<p style="text-align: center">--- Live preview ---</p>](https://liridonloku.github.io/todo/)
+
+# Screenshots
+## Desktop view:
+![Desktop screenshot](screenshot.png)
+## Mobile view:
+<p style="text-align: center"><img src="mobile.png" alt="Mobile screenshot" height="400"/></p>
+
 
 # Usage
 
@@ -35,6 +40,7 @@ This app is simple to use:
 ## Known issues
 - The app remembers the last selected view, so that when the user triggers a reload by adding a new task the view doesn't change. This doesn't work if the last selected view is a project.
 - I've used a custom function to assign ID's to each task and project, but I have concerns about its performance once there's a large number of entries. This needs to be handled with a UID function.
+- Task description doesn't retain formatting used when filling it. It turns all of it into a simple string.
 
 ## Features for future versions
 
@@ -50,7 +56,7 @@ Liridon Loku - liridonloku@gmail.com
 
 # Acknowledgements
 
-- [The Odin Project](https://theodinproject.com) - for their amazing curriculum and community.
+- [The Odin Project](https://theodinproject.com) - an amazing curriculum and community.
 - [Date-fns](https://date-fns.org/)
 - [Webpack](https://webpack.js.org/)
 - [Google material icons](https://fonts.google.com/icons)
