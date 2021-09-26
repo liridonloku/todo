@@ -39,7 +39,6 @@ This app is simple to use:
 ## Known issues
 - The app remembers the last selected view, so that when the user triggers a reload by adding a new task the view doesn't change. This doesn't work if the last selected view is a project.
 - I've used a custom function to assign ID's to each task and project, but I have concerns about its performance once there's a large number of entries. This needs to be handled with a UID function.
-- Task description doesn't retain formatting used when filling it. It turns all of it into a simple string.
 
 ## Features for future versions
 
