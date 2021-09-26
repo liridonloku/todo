@@ -42,8 +42,8 @@ body{
 }
 
 .task-details-title{
-    font-size: 16px;
-    margin-bottom: 5px;
+    font-size: 24px;
+    margin-bottom: 15px;
     word-break: break-word;
 }
 
@@ -559,12 +559,12 @@ body{
 
     .task-form{
         min-width: 300px;
-        width: 95%;
+        width: 90%;
     }
 
     .task-details{
         min-width: 300px;
-        width: 95%;
+        width: 90%;
     }
     
 }
