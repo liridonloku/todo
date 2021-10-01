@@ -171,6 +171,7 @@ const loadTasks = (tasks) =>{
     tasks.forEach(task => {
         const taskCard = document.createElement('div');
         taskCard.classList.add('task-card');
+        taskCard.setAttribute('id', task.id);
         const priority = document.createElement('div');
         priority.classList.add(`priority-${task.priority}`);
         const taskTitle = document.createElement('div');

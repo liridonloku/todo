@@ -70,12 +70,15 @@ const cancelTaskForm = (id) =>{
 }
 //Delete task button
 const deleteTask = (id) =>{
+    document.getElementById(id).classList.add('delete');
     removeTask(id);
-    loadLastView();
+    setTimeout(() => {
+        loadLastView();
+    }, 200);
 }
 //Project form toggle (via new project or edit project)
 const toggleProjectForm = (id) =>{
-    if(window.innerWidth <= 420 && domElements.sidePanel.style.display === 'block'){
+    if(window.innerWidth <= 420 && domElements.sidePanel.classList.contains('visible')){
         toggleMenu();
     }
     const projectForm = document.querySelector('.project-form');
@@ -131,7 +134,7 @@ const deleteProject = (id) =>{
 let lastView = 'All tasks';
 //All tasks
 const displayAllTasks = () =>{
-    if(window.innerWidth <= 420 && domElements.sidePanel.style.display === 'block'){
+    if(window.innerWidth <= 420 && domElements.sidePanel.classList.contains('visible')){
         toggleMenu();
     }
     lastView = 'All tasks';
@@ -140,7 +143,7 @@ const displayAllTasks = () =>{
 }
 //Today
 const displayToday = () =>{
-    if(window.innerWidth <= 420 && domElements.sidePanel.style.display === 'block'){
+    if(window.innerWidth <= 420 && domElements.sidePanel.classList.contains('visible')){
         toggleMenu();
     }
     lastView = 'Today';
@@ -169,7 +172,7 @@ const projectDisplayFunction = (id) =>{
 }
 //Task details
 const showTaskDetails = (id) =>{
-    if(window.innerWidth <= 420 && domElements.sidePanel.style.display === 'block'){
+    if(window.innerWidth <= 420 && domElements.sidePanel.classList.contains('visible')){
         toggleMenu();
     }
     let tasks = getTasks();

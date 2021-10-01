@@ -487,6 +487,12 @@ body{
     margin-bottom: 10px;
     padding-left: 3px;
     padding-right: 3px;
+    transition: ease-in-out 150ms;
+}
+
+.task-card.delete{
+    transform: translateX(-500px);
+    opacity: 0;
 }
 
 .priority-high{
@@ -580,7 +586,7 @@ body{
         z-index: 1;
         background-color: var(--white);
         height: 100%;
-        transition: ease-in 200ms;
+        transition: ease-in 150ms;
     }
 
     .side-panel.visible{
