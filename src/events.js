@@ -4,19 +4,18 @@ import { addProject, editProject, getProjects, removeProject } from "./projects"
 import { addTask, editTask, getTasks, removeTask } from "./tasks";
 
 
+window.addEventListener('DOMContentLoaded', () => {
+    document.body.classList.remove('preload');
+});
+
 //Menu toggle (mobile)
 const toggleMenu = () =>{
-    if(domElements.sidePanel.style.display === 'none' || domElements.sidePanel.style.display === ''){
-        domElements.sidePanel.style.display = 'block';
-    }
-    else{
-        domElements.sidePanel.style.display = 'none';
-    }
+    domElements.sidePanel.classList.toggle('visible');
 }
 
 //Task form toggle (via new task or edit task)
 const toggleTaskForm = (id) => {
-    if(window.innerWidth <= 420 && domElements.sidePanel.style.display === 'block'){
+    if(window.innerWidth <= 420 && domElements.sidePanel.classList.contains('visible')){
         toggleMenu();
     }
     const taskForm = document.querySelector('.task-form');
