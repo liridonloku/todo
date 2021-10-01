@@ -387,7 +387,6 @@ body{
     display: flex;
     align-items: center;
     height: 40px;
-    cursor: pointer;
     color:var(--blue);
 }
 
@@ -435,6 +434,7 @@ body{
     height: 40px;
     display: flex;
     align-items: center;
+    cursor: pointer;
 }
 
 .project-name{
