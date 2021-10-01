@@ -19,6 +19,7 @@ const domElements = {
     today: document.getElementById('today'),
     thisWeek: document.getElementById('this-week'),
     domTasksTitle: document.getElementById('tasks-dom-title'),
+    taskDetails: document.querySelector('.task-details'),
     taskDetailsTitle: document.querySelector('.task-details-title'),
     taskDetailsDescription: document.querySelector('.task-details-description'),
     taskDetailsPriority: document.querySelector('.task-details-priority'),

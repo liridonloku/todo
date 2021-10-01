@@ -19,7 +19,7 @@ const toggleTaskForm = (id) => {
         toggleMenu();
     }
     const taskForm = document.querySelector('.task-form');
-    if(taskForm.style.display === 'none' || taskForm.style.display === ''){
+    if(!domElements.formOverlay.classList.contains('visible')){
         //Edit task
         if(id != ''){
             let tasks = getTasks();
@@ -42,12 +42,12 @@ const toggleTaskForm = (id) => {
             domElements.taskProject.value = '';
             domElements.saveTask.setAttribute('id', '');
         }
-        taskForm.style.display = 'flex';
-        domElements.formOverlay.style.display = 'block';
+        domElements.formOverlay.classList.toggle('visible');
+        taskForm.classList.toggle('visible');
     }
     else{
-        taskForm.style.display = 'none';
-        domElements.formOverlay.style.display = 'none';
+        domElements.formOverlay.classList.toggle('visible');
+        taskForm.classList.toggle('visible');
     }
 }
 //Save/edit task form button
@@ -79,7 +79,7 @@ const toggleProjectForm = (id) =>{
         toggleMenu();
     }
     const projectForm = document.querySelector('.project-form');
-    if(projectForm.style.display === 'none' || projectForm.style.display === ''){
+    if(!domElements.formOverlay.classList.contains('visible')){
         //Edit project
         if(id != ''){
             let projects = getProjects();
@@ -94,12 +94,12 @@ const toggleProjectForm = (id) =>{
             domElements.projectName.value = '';
             domElements.saveProject.setAttribute('id', '');
         }
-        projectForm.style.display = 'flex';
-        domElements.formOverlay.style.display = 'block'
+        projectForm.classList.toggle('visible');
+        domElements.formOverlay.classList.toggle('visible');
     }
     else{
-        projectForm.style.display = 'none';
-        domElements.formOverlay.style.display = 'none';
+        projectForm.classList.toggle('visible');
+        domElements.formOverlay.classList.toggle('visible');
     }
 }
 //Save/edit project form button
@@ -181,9 +181,11 @@ const showTaskDetails = (id) =>{
     domElements.taskDetailsDate.textContent = `Due date: ${task.date}`;
     domElements.taskDetailsProject.textContent = `Project: ${task.project}`;
     domElements.taskDetailsOkButton.addEventListener('click', () =>{
-        document.querySelector('.task-details').style.display = 'none';
+        domElements.taskDetails.classList.remove('visible');
+        domElements.formOverlay.classList.remove('visible');
     });
-    document.querySelector('.task-details').style.display = 'flex';
+    domElements.taskDetails.classList.toggle('visible');
+    domElements.formOverlay.classList.toggle('visible');
 }
 
 const loadLastView = () =>{

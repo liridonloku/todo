@@ -38,8 +38,14 @@ body{
     height: 85%;
     max-height: 400px;
     box-shadow: 0 0 5px gray;
-    display: none;
+    display: flex;
+    scale: 0;
     flex-direction: column;
+    transition: ease-in-out 150ms;
+}
+
+.task-details.visible{
+    scale: 1;
 }
 
 .task-details-header{
@@ -94,15 +100,22 @@ body{
 }
 
 .task-form-overlay{
-    display: none;
+    display: block;
     position: absolute;
     width: 100vw;
     height: 100vh;
+    scale: 0;
+    overflow: hidden;
     top: 0;
     bottom: 0;
     right: 0;
     left: 0;
     margin: auto;
+    transition: ease-in-out 150ms;
+}
+
+.task-form-overlay.visible{
+    scale: 1;
 }
 
 .task-form{
@@ -120,9 +133,14 @@ body{
     width: 400px;
     height: 400px;
     box-shadow: 0 0 5px gray;
-    display: none;
+    display: flex;
     flex-direction: column;
-    transition: ease-in-out 200ms;
+    scale: 0;
+    transition: ease-in-out 150ms;
+}
+
+.task-form.visible{
+    scale: 1;
 }
 
 .task-form>div{
@@ -194,10 +212,13 @@ body{
     width: 400px;
     height: 90px;
     box-shadow: 0 0 5px gray;
-    scale: 0;
     flex-direction: column;
-    justify-content: space-between;
-    transition: 200ms;
+    scale: 0;
+    transition: ease-in-out 150ms;
+}
+
+.project-form.visible{
+    scale: 1;
 }
 
 .project-form>div{
@@ -207,16 +228,18 @@ body{
 }
 
 .project-form>input{
+    align-self: center;
     border: none;
     background: none;
     box-shadow: 0 0 2px gray;
     margin-bottom: 5px;
+    width: calc(100% - 10px);
 }
 
 .project-form>.form-buttons{
     display: flex;
     justify-content: space-around;
-    flex-grow: 1;
+    height: 40px;
     align-items: center;
 }
 
