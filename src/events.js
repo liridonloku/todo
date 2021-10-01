@@ -152,7 +152,7 @@ const displayToday = () =>{
 }
 //This week
 const displayThisWeek = () =>{
-    if(window.innerWidth <= 420 && domElements.sidePanel.style.display === 'block'){
+    if(window.innerWidth <= 420 && domElements.sidePanel.classList.contains('visible')){
         toggleMenu();
     }
     lastView = 'This week';
@@ -161,7 +161,7 @@ const displayThisWeek = () =>{
 }
 //Project display
 const projectDisplayFunction = (id) =>{
-    if(window.innerWidth <= 420 && domElements.sidePanel.style.display === 'block'){
+    if(window.innerWidth <= 420 && domElements.sidePanel.classList.contains('visible')){
         toggleMenu();
     }
     let projects = getProjects();
