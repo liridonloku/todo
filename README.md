@@ -1,11 +1,11 @@
 # About
 
-**U-Do** is a Todo list web app with a clean UI that helps users keep their notes organized, so that they can focus on actually completing the tasks.
+**U-Do** is a Todo list web app with a clean UI that helps users keep their notes organized.
 
 It displays tasks ordered by the date they're due to be completed, while giving users the option to view all the tasks, or just those of the day (or week), so that there's less clutter and it's always clear what needs to be done next.
 Users can also assign priorities to each task, so the most important ones are always highlighted.
 
-U-Do also offers the ability to group related tasks into projects, and the ability to display the tasks of a selected project, for even easier sorting. And it has localStorage support, so the tasks and projects don't get erased on closing the page.
+U-Do offers the ability to group related tasks into projects, and the ability to display the tasks of a selected project, for even easier sorting. And it has localStorage support, so the tasks and projects don't get erased on closing the page.
 
 ## Built with
 
@@ -44,7 +44,6 @@ This app is simple to use:
 
 - Ability to mark tasks as done without deleting them
 - Ability to add subtasks
-- Adding animations for a better UX
 - Dark mode
 - Improved UI/UX on mobile devices
 
