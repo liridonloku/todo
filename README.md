@@ -7,7 +7,9 @@ Users can also assign priorities to each task, so the most important ones are al
 
 U-Do offers the ability to group related tasks into projects, and the ability to display the tasks of a selected project, for even easier sorting. And it has localStorage support, so the tasks and projects don't get erased on closing the page.
 
-# Update: The App now has a dark mode
+### Update: The App now has a dark mode
+
+#
 
 ## Built with
 
