@@ -7,6 +7,8 @@ Users can also assign priorities to each task, so the most important ones are al
 
 U-Do offers the ability to group related tasks into projects, and the ability to display the tasks of a selected project, for even easier sorting. And it has localStorage support, so the tasks and projects don't get erased on closing the page.
 
+# Update: The App now has a dark mode
+
 ## Built with
 
 This app is built without using any frameworks, only:
@@ -15,15 +17,17 @@ This app is built without using any frameworks, only:
 - CSS
 - JavaScript
 
-
 ## [<p style="text-align: center">--- Live preview ---</p>](https://liridonloku.github.io/todo/)
 
 # Screenshots
-## Desktop view:
-![Desktop screenshot](screenshot.png)
-## Mobile view:
-<p style="text-align: center"><img src="mobile.png" alt="Mobile screenshot" height="400"/></p>
 
+## Desktop view:
+
+![Desktop screenshot](screenshot.png)
+
+## Mobile view:
+
+<p style="text-align: center"><img src="mobile.png" alt="Mobile screenshot" height="400"/></p>
 
 # Usage
 
@@ -37,6 +41,7 @@ This app is simple to use:
 # Roadmap
 
 ## Known issues
+
 - The app remembers the last selected view, so that when the user triggers a reload by adding a new task the view doesn't change. This doesn't work if the last selected view is a project.
 - I've used a custom function to assign ID's to each task and project, but I have concerns about its performance once there's a large number of entries. This needs to be handled with a UID function.
 
@@ -44,7 +49,6 @@ This app is simple to use:
 
 - Ability to mark tasks as done without deleting them
 - Ability to add subtasks
-- Dark mode
 - Improved UI/UX on mobile devices
 
 # Contact
@@ -57,4 +61,3 @@ Liridon Loku - liridonloku@gmail.com
 - [Date-fns](https://date-fns.org/)
 - [Webpack](https://webpack.js.org/)
 - [Google material icons](https://fonts.google.com/icons)
-
