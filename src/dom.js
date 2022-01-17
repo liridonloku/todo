@@ -233,13 +233,13 @@ const loadTasks = (tasks) => {
   });
 };
 
-//Create edit task form
+//Create edit task form - Unused for now...
 const editTaskForm = (id) => {
   //Pre-fill the form with data from task.id, then allow edits.
   //Attach event listeners
 };
 
-//Create edit project form
+//Create edit project form - Unused for now...
 const editProjectForm = (id) => {
   //Pre-fill the form with data from project.id, then allow edits.
   //Attach event listeners

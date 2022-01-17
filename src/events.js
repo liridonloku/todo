@@ -13,24 +13,32 @@ import {
 } from "./projects";
 import { addTask, editTask, getTasks, removeTask } from "./tasks";
 
+// Disable animations on load
 window.addEventListener("DOMContentLoaded", () => {
-  document.body.classList.remove("preload");
+  setTimeout(() => {
+    document.body.classList.remove("preload");
+  }, 1000);
 });
 
 //Menu toggle (mobile)
 const toggleMenu = () => {
   domElements.sidePanel.classList.toggle("visible");
 };
-
+// Default theme
+let theme = "light";
 //Theme toggle
 const toggleTheme = () => {
-  if (domElements.themeToggle.textContent === "dark_mode") {
+  if (theme === "light") {
+    theme = "dark";
+    localStorage.theme = "dark";
     domElements.themeToggle.textContent = "light_mode";
     document.documentElement.style.setProperty("--background", "#2a272a");
     document.documentElement.style.setProperty("--font-primary", "#f7f0f0");
     document.documentElement.style.setProperty("--shadow", "#0b0a0b");
     document.documentElement.style.setProperty("--after", "#0b0a0b");
   } else {
+    theme = "light";
+    localStorage.theme = "light";
     domElements.themeToggle.textContent = "dark_mode";
     document.documentElement.style.setProperty("--background", "#f2f5f7");
     document.documentElement.style.setProperty("--font-primary", "#2b303a");
@@ -38,6 +46,13 @@ const toggleTheme = () => {
     document.documentElement.style.setProperty("--after", "#d8d4d8");
   }
 };
+
+// Get theme from localStorage
+if (localStorage.theme === "dark") {
+  setTimeout(() => {
+    toggleTheme();
+  }, 50);
+}
 
 //Task form toggle (via new task or edit task)
 const toggleTaskForm = (id) => {
