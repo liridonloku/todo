@@ -120,7 +120,12 @@ body {
   background: none;
   border: none;
   background-color: var(--primary);
-  color: var(--background);
+  color: white;
+}
+
+.task-details-buttons > button:hover {
+  background-color: var(--secondary);
+  box-shadow: 0 0 2px var(--shadow);
 }
 
 /* Task Form PopUP */
@@ -239,7 +244,6 @@ body {
 
 .task-form > .form-buttons > button:hover {
   background-color: var(--secondary);
-  color: var(--font-primary);
   box-shadow: 0 0 2px var(--shadow);
 }
 
@@ -313,7 +317,6 @@ body {
 
 .project-form > .form-buttons > button:hover {
   background-color: var(--secondary);
-  color: var(--font-primary);
   box-shadow: 0 0 2px var(--shadow);
 }
 
